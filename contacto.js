@@ -1,28 +1,52 @@
 let listaDeContactos = ["miryam rodriguez", "iniris rodriguez", "sharon porras", "janer puerta"];
+let contactoNuevo;
+ contactoNuevo= "sheril"
 
-// Añadir un nuevo contacto
-function agregar(nombreApellido) {
-  listaDeContactos.push(nombreApellido);
+
+ const cont = {
+
+    id : 1143359902,
+    nombres : "yerlis",
+    apellidos : "smykle",
+    telefonos : 3244962168,
+    ubicaciones : {
+        cuidad : "cartagena",
+        direccion : "Pozon la conquista"
+    }
 }
 
-// Borrar un contacto
-function borrar(nombreApellido) {
-  const index = listaDeContactos.indexOf(nombreApellido);
-  if (index !== -1) {
-    listaDeContactos.splice(index, 1);
-  } else {
-    console.log("El contacto no existe en la lista");
-  }
+console.log(listaDeContactos);
+
+//Nuevo contacto
+function nuevoContacto(nombres, telefonos) {
+    nombres = cont.nombres;
+    telefonos = cont.telefonos;
+        listaDeContactos.unshift(nombres, telefonos);    
+    
+
+    return listaDeContactos;
 }
 
-// Imprimir en consola
-function imprimir() {
-  if (listaDeContactos.length === 0) {
-    console.log("La lista de contactos está vacía.");
-  } else {
-    console.log("Lista de contactos:");
-    listaDeContactos.forEach((contacto) => {
-      console.log(contacto);
-    });
-  }
+nuevoContacto();
+console.log(listaDeContactos);
+
+let nuevaLista;
+//Borrar un contacto
+function borrarContacto(){
+    let objetoRecorrido;
+    for (objetoRecorrido in listaDeContactos) {
+        nuevaLista = listaDeContactos.splice(3, 3, objetoRecorrido);    
+    }
+
+    return listaDeContactos;
 }
+
+borrarContacto()
+console.log("Elemento Borrado: " + nuevaLista);
+
+//Imprimir en consola la lista actualizada
+function listaActualizada(){
+    console.log(listaDeContactos);
+}
+
+listaActualizada(cont);
